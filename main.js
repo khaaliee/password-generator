@@ -1,4 +1,4 @@
-let password = ""
+let password = [""]
 let charactersLeft = -1
 const passwordLength = parseInt(prompt("How long password should be?"));
 
@@ -44,10 +44,25 @@ console.log("Special characters:" + " " + specialCharacters);
 console.log("digits:" + " " + digits);
 
 for(let i = 0; i < passwordLength; i++) {
-const lowercaseArray = ["a","b","c","d","e","f","h","i","j","k","l","m","n","o","p","r","t","u","w","y","z"]
+let lowercaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","r","t","u","w","y","z"]
 if(lowercaseLetters > 0) {
-password = lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]
+password += lowercaseArray[Math.floor(Math.random()*lowercaseArray.length)]
 lowercaseLetters -= 1
-console.log(password)
+}
+let uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H"]
+if(uppercaseLetters > 0) {
+password += uppercaseArray[Math.floor(Math.random()*uppercaseArray.length)]
+uppercaseLetters -= 1
+}
+let specialCharactersArray = ["!","#","^","*","&",")","$", "@", "+", "="]
+if(specialCharacters > 0) {
+password += specialCharactersArray[Math.floor(Math.random()*specialCharactersArray.length)]
+specialCharacters -= 1
+}
+let digitsArray = ["1","2","3","4","5","6","7","8","9","0"]
+if(digits > 0) {
+password += digitsArray[Math.floor(Math.random()*digitsArray.length)]
+digits -= 1
 }
 }
+console.log("Password:" + password)
